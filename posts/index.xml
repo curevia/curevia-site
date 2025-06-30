@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Curevia</title>
+    <link>//localhost:1313/posts/</link>
+    <description>Recent content in Posts on Curevia</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to Curevia Updates</title>
+      <link>//localhost:1313/posts/welcome/</link>
+      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/welcome/</guid>
+      <description>&lt;p&gt;We’ll be using this section to share project milestones, hiring updates, and progress as we build the future of implantable health technology.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:1313/posts/list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/list/</guid>
+      <description>&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&#34;en&#34;&gt;&#xA;&lt;head&gt;&#xA;  &lt;meta charset=&#34;UTF-8&#34; /&gt;&#xA;  &lt;title&gt;Posts - Curevia&lt;/title&gt;&#xA;  &lt;link rel=&#34;stylesheet&#34; href=&#34;//localhost:1313/css/style.css&#34; /&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;  &lt;main class=&#34;content&#34;&gt;&#xA;    &lt;h1&gt;Posts&lt;/h1&gt;&#xA;    &lt;ul&gt;&#xA;      {{ range .Pages.ByDate.Reverse }}&#xA;        &lt;li&gt;&#xA;          &lt;a href=&#34;{{ .RelPermalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;&#xA;          &lt;small&gt;{{ .Date.Format &#34;Jan 2, 2006&#34; }}&lt;/small&gt;&#xA;          &lt;p&gt;{{ .Summary }}&lt;/p&gt;&#xA;        &lt;/li&gt;&#xA;      {{ end }}&#xA;    &lt;/ul&gt;&#xA;  &lt;/main&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;</description>
+    </item>
+  </channel>
+</rss>
