@@ -1,0 +1,244 @@
+---
+
+## ✅ 1. Install Hugo
+
+### On macOS:
+
+```bash
+brew install hugo
+```
+
+### On Linux:
+
+```bash
+sudo apt install hugo
+```
+
+### On Windows (using Chocolatey):
+
+```bash
+choco install hugo -confirm
+```
+
+Confirm it's working:
+
+```bash
+hugo version
+```
+
+---
+
+## ✅ 2. Create a New Hugo Site
+
+```bash
+hugo new site curevia
+cd curevia
+```
+
+---
+
+## ✅ 3. Set Up Your Custom Layout
+
+### Create the folder structure:
+
+```bash
+mkdir -p layouts
+mkdir -p static/css static/images
+```
+
+### Add your files:
+
+* 🔹 Your HTML → `layouts/index.html`
+* 🔹 Your CSS → `static/css/style.css`
+* 🔹 Your logo → `static/images/logo.png`
+* 🔹 Optional hero image → `static/images/hero-bg.jpg`
+
+> 💡 You don’t need a theme since you're using custom layout.
+
+---
+
+## ✅ 4. Add Sample Content
+
+Create one post:
+
+```bash
+hugo new posts/welcome.md
+```
+
+Edit `content/posts/welcome.md` and write something simple:
+
+```markdown
+---
+title: "Welcome to Curevia"
+date: 2025-06-30
+---
+
+We're building the future of valve therapies.
+```
+
+---
+
+## ✅ 5. Run the Hugo Server
+
+```bash
+hugo server
+```
+
+Visit: [http://localhost:1313](http://localhost:1313)
+
+---
+
+## ✅ 6. Modify Content
+
+* **Homepage layout**: `layouts/index.html`
+* **Styling**: `static/css/style.css`
+* **Blog posts**: create `.md` files in `content/posts/`
+
+---
+
+## ✅ 7. Build for Production
+
+```bash
+hugo
+```
+
+The static site will be in `public/`.
+
+You can deploy this folder to:
+
+* Netlify
+* GitHub Pages
+* Vercel
+* Surge
+* Your server
+
+---
+
+Great — you're already set up with a clean Hugo site and working HTML/CSS. Here's a **short and sweet guide** to install Hugo, use your current setup, and modify content as you go.
+
+---
+
+## ✅ 1. Install Hugo
+
+### On macOS:
+
+```bash
+brew install hugo
+```
+
+### On Linux:
+
+```bash
+sudo apt install hugo
+```
+
+### On Windows (using Chocolatey):
+
+```bash
+choco install hugo -confirm
+```
+
+Confirm it's working:
+
+```bash
+hugo version
+```
+
+---
+
+## ✅ 2. Create a New Hugo Site
+
+```bash
+hugo new site curevia
+cd curevia
+```
+
+---
+
+## ✅ 3. Set Up Your Custom Layout
+
+### Create the folder structure:
+
+```bash
+mkdir -p layouts
+mkdir -p static/css static/images
+```
+
+### Add your files:
+
+* 🔹 Your HTML → `layouts/index.html`
+* 🔹 Your CSS → `static/css/style.css`
+* 🔹 Your logo → `static/images/logo.png`
+* 🔹 Optional hero image → `static/images/hero-bg.jpg`
+
+> 💡 You don’t need a theme since you're using custom layout.
+
+---
+
+## ✅ 4. Add Sample Content
+
+Create one post:
+
+```bash
+hugo new posts/welcome.md
+```
+
+Edit `content/posts/welcome.md` and write something simple:
+
+```markdown
+---
+title: "Welcome to Curevia"
+date: 2025-06-30
+---
+
+We're building the future of valve therapies.
+```
+
+---
+
+## ✅ 5. Run the Hugo Server
+
+```bash
+hugo server
+```
+
+Visit: [http://localhost:1313](http://localhost:1313)
+
+---
+
+## ✅ 6. Modify Content
+
+* **Homepage layout**: `layouts/index.html`
+* **Styling**: `static/css/style.css`
+* **Blog posts**: create `.md` files in `content/posts/`
+
+---
+
+## ✅ 7. Build for Production
+
+```bash
+hugo
+```
+
+The static site will be in `public/`.
+
+You can deploy this folder to:
+
+* Netlify
+* GitHub Pages
+* Vercel
+* Surge
+* Your server
+
+---
+
+Let me know if you want to:
+
+* Add a jobs section
+* Enable form submissions (e.g. via Formspree)
+* Prepare for deployment (e.g., `netlify.toml`)
+
+I'll keep it minimal and clean.
+
+
+
