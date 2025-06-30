@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* Hero background */
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 40px 20px;
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.hero-logo, .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Centered Logo */
+.hero-logo {
+  z-index: 5;
+}
+
+.hero-logo img {
+  max-height: 240px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Optional: center any hero text under the logo */
+
+
+.hero-content h1 {
+  font-size: 48px;
+  margin: 10px 0 5px;    /* ↓ Reduce vertical margin between h1 and p */
+  line-height: 1.1;      /* ↓ Tighten line height if title is multiline */
+}
+
+.hero-content p {
+  font-size: 32px;
+  margin: 0;
+  line-height: 1.2;      /* ↓ Tight line height for subtitle */
+}
+
+
+
+/* Contact top-right */
+.contact-link {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.contact-link a {
+  color: black;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.contact-link a:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Main content */
+.content {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+a {
+  color: #0c2d48;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #084d8b;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 40px 20px 20px;
+  background-color: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
+}
+
