@@ -1,26 +1,30 @@
+# 🧭 Curevia Website Setup & Deployment Guide
+
+Minimal Hugo site built from scratch, styled without a theme.
+
 ---
 
 ## ✅ 1. Install Hugo
 
-### On macOS:
+### macOS:
 
 ```bash
 brew install hugo
 ```
 
-### On Linux:
+### Linux:
 
 ```bash
 sudo apt install hugo
 ```
 
-### On Windows (using Chocolatey):
+### Windows (with Chocolatey):
 
 ```bash
 choco install hugo -confirm
 ```
 
-Confirm it's working:
+Check version:
 
 ```bash
 hugo version
@@ -28,44 +32,37 @@ hugo version
 
 ---
 
-## ✅ 2. Create a New Hugo Site
+## ✅ 2. Set Up the Site
 
 ```bash
 hugo new site curevia
 cd curevia
 ```
 
----
-
-## ✅ 3. Set Up Your Custom Layout
-
-### Create the folder structure:
+Add folders:
 
 ```bash
-mkdir -p layouts
-mkdir -p static/css static/images
+mkdir -p layouts static/css static/images
 ```
 
-### Add your files:
+Place files:
 
-* 🔹 Your HTML → `layouts/index.html`
-* 🔹 Your CSS → `static/css/style.css`
-* 🔹 Your logo → `static/images/logo.png`
-* 🔹 Optional hero image → `static/images/hero-bg.jpg`
+* `layouts/index.html` → Your custom HTML
+* `static/css/style.css` → Styling
+* `static/images/logo.png` → Logo
+* `static/images/hero-bg.jpg` → Optional hero image
 
-> 💡 You don’t need a theme since you're using custom layout.
+> 💡 No theme is needed — layout is fully custom.
 
 ---
 
-## ✅ 4. Add Sample Content
-
-Create one post:
+## ✅ 3. Add a Sample Post
 
 ```bash
 hugo new posts/welcome.md
 ```
 
-Edit `content/posts/welcome.md` and write something simple:
+Edit `content/posts/welcome.md`:
 
 ```markdown
 ---
@@ -78,7 +75,7 @@ We're building the future of valve therapies.
 
 ---
 
-## ✅ 5. Run the Hugo Server
+## ✅ 4. Preview Locally
 
 ```bash
 hugo server
@@ -88,157 +85,92 @@ Visit: [http://localhost:1313](http://localhost:1313)
 
 ---
 
-## ✅ 6. Modify Content
-
-* **Homepage layout**: `layouts/index.html`
-* **Styling**: `static/css/style.css`
-* **Blog posts**: create `.md` files in `content/posts/`
-
----
-
-## ✅ 7. Build for Production
+## ✅ 5. Build the Site
 
 ```bash
 hugo
 ```
 
-The static site will be in `public/`.
-
-You can deploy this folder to:
-
-* Netlify
-* GitHub Pages
-* Vercel
-* Surge
-* Your server
+Output goes to `public/` — ready for deployment.
 
 ---
 
-Great — you're already set up with a clean Hugo site and working HTML/CSS. Here's a **short and sweet guide** to install Hugo, use your current setup, and modify content as you go.
+## ✅ 6. GitHub Setup
 
----
-
-## ✅ 1. Install Hugo
-
-### On macOS:
+### Initialize Git:
 
 ```bash
-brew install hugo
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
 ```
 
-### On Linux:
+### Connect Remote:
 
 ```bash
-sudo apt install hugo
-```
-
-### On Windows (using Chocolatey):
-
-```bash
-choco install hugo -confirm
-```
-
-Confirm it's working:
-
-```bash
-hugo version
+git remote add origin git@github.com:your-username/curevia-site.git
+git push -u origin main
 ```
 
 ---
 
-## ✅ 2. Create a New Hugo Site
+## ✅ 7. GitHub Actions Deployment
 
-```bash
-hugo new site curevia
-cd curevia
+Create `.github/workflows/gh-pages.yml`:
+
+```yaml
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - run: hugo --minify
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
 ```
 
 ---
 
-## ✅ 3. Set Up Your Custom Layout
+## ✅ 8. Enable GitHub Pages
 
-### Create the folder structure:
+1. Go to **Repo → Settings → Pages**
+2. Set:
 
-```bash
-mkdir -p layouts
-mkdir -p static/css static/images
+   * Branch: `gh-pages`
+   * Folder: `/ (root)`
+
+GitHub will give you a link like:
+
 ```
-
-### Add your files:
-
-* 🔹 Your HTML → `layouts/index.html`
-* 🔹 Your CSS → `static/css/style.css`
-* 🔹 Your logo → `static/images/logo.png`
-* 🔹 Optional hero image → `static/images/hero-bg.jpg`
-
-> 💡 You don’t need a theme since you're using custom layout.
-
----
-
-## ✅ 4. Add Sample Content
-
-Create one post:
-
-```bash
-hugo new posts/welcome.md
-```
-
-Edit `content/posts/welcome.md` and write something simple:
-
-```markdown
----
-title: "Welcome to Curevia"
-date: 2025-06-30
----
-
-We're building the future of valve therapies.
+https://your-username.github.io/curevia-site/
 ```
 
 ---
 
-## ✅ 5. Run the Hugo Server
+## ✅ 9. Workflow Summary
 
-```bash
-hugo server
-```
-
-Visit: [http://localhost:1313](http://localhost:1313)
-
----
-
-## ✅ 6. Modify Content
-
-* **Homepage layout**: `layouts/index.html`
-* **Styling**: `static/css/style.css`
-* **Blog posts**: create `.md` files in `content/posts/`
+| Task             | Command                                        |
+| ---------------- | ---------------------------------------------- |
+| Serve locally    | `hugo server`                                  |
+| Build for deploy | `hugo`                                         |
+| Push changes     | `git add . && git commit -m "..." && git push` |
 
 ---
 
-## ✅ 7. Build for Production
-
-```bash
-hugo
-```
-
-The static site will be in `public/`.
-
-You can deploy this folder to:
-
-* Netlify
-* GitHub Pages
-* Vercel
-* Surge
-* Your server
-
----
-
-Let me know if you want to:
-
-* Add a jobs section
-* Enable form submissions (e.g. via Formspree)
-* Prepare for deployment (e.g., `netlify.toml`)
-
-I'll keep it minimal and clean.
-
-
+Let me know if you want a version that includes **custom domain**, **Netlify**, or **CI/CD hooks**!
 
